@@ -1,0 +1,15 @@
+@serverUrl = http://localhost:9000
+@traderId = 2583e36b-e792-4ba7-8827-cbeb5c6af24a
+
+### CREATE TARADER
+POST {{serverUrl}}/api/trader
+Content-Type: application/json
+
+{
+    "id": "{{$guid}}",
+    "login": "login{{$guid}}",
+    "password": "password",   
+    "name": "name@{{$guid}}",
+    "email": "email@{{$guid}}",
+    "phone": {{$randomInt 48500000001 48590000001}}
+}

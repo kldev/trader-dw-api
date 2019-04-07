@@ -1,0 +1,14 @@
+version: '3'
+services:
+  book-service:
+    image: postgres:9.6
+    volumes:
+      - pddata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: traderdw
+      POSTGRES_USER: traderdw
+      POSTGRES_PASSWORD: traderdw
+    ports:
+      - "5432:5432"
+volumes:
+  pddata:

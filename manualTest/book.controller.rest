@@ -1,0 +1,34 @@
+@serverUrl = http://localhost:9000
+@traderId = 2583e36b-e792-4ba7-8827-cbeb5c6af24a
+
+### CREATE BOOK
+POST {{serverUrl}}/api/book
+Content-Type: application/json
+
+{
+    "id": "{{$guid}}",
+    "traderId": "{{$guid}}",
+    "title": "Some title {{$guid}}",
+    "author": "Some author {{$guid}}",
+    "price": 5.25
+}
+
+
+### CREATE BOOK
+POST {{serverUrl}}/api/book
+Content-Type: application/json
+
+{
+    "id": "{{$guid}}",
+    "traderId": "{{traderId}}",
+    "title": "Selected trader title {{$guid}}",
+    "author": "Some author {{$guid}}",
+    "price": 9.99
+}
+
+
+### GET Book List
+GET {{serverUrl}}/api/book
+
+### GET Book List by trader
+GET {{serverUrl}}/api/book/{{traderId}}

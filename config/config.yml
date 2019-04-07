@@ -1,0 +1,32 @@
+# Change default server ports
+server:
+  rootPath: /api/
+  applicationConnectors:
+    - type: http
+      port: 9000
+
+  adminConnectors:
+    - type: http
+      port: 9999
+database:
+  driverClass: org.postgresql.Driver
+  user: ${DB_USER:-traderdw}
+  password: ${DB_PASSWORD:-traderdw}
+  url: ${DB_URL:-jdbc:postgresql://localhost:5432/traderdw}
+  properties:
+    charSet: UTF-8
+    hibernate.dialect:  org.hibernate.dialect.PostgreSQL95Dialect
+    hibernate.hbm2ddl.auto: update #
+
+  validationQuery: "SELECT now()"
+
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: false
+
+
+logging:
+  loggers:
+    "org.hibernate.engine.internal.StatisticalLoggingSessionEventListener":
+      level: OFF
+    "com.kldev.dw":
+      level: ${LOG_LEVEL:-DEBUG}            # ERROR / INFO

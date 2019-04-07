@@ -1,0 +1,19 @@
+FROM  openjdk:8u181-jdk-slim as build
+USER root
+COPY . /app
+WORKDIR /app
+
+RUN chmod 777 * -R
+RUN ls -la
+
+RUN ./gradlew shadowJar -x test
+
+FROM openjdk:8-alpine
+VOLUME /tmp
+COPY --from=build /app/build/libs/app.jar .
+COPY --from=build /app/build/libs/config.yml config.yml
+
+EXPOSE 9000
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar","server","config.yml"]
+
+# docker build -t vs-api -f Dockerfile.fullBuild .
