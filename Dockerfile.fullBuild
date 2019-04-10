@@ -16,4 +16,4 @@ COPY --from=build /app/build/libs/config.yml config.yml
 EXPOSE 9000
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar","server","config.yml"]
 
-# docker build -t vs-api -f Dockerfile.fullBuild .
+# docker build -t trader-dw-api -f Dockerfile.fullBuild .
