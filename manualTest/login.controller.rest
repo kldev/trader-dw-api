@@ -1,0 +1,22 @@
+@serverUrl = http://localhost:9000
+
+### Login admin
+
+POST {{serverUrl}}/api/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "password"
+}
+
+
+### Login admin failed
+
+POST {{serverUrl}}/api/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "wronPassword"
+}

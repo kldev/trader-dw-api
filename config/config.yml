@@ -8,6 +8,10 @@ server:
   adminConnectors:
     - type: http
       port: 9999
+
+jwtSecret: ${JWT_SECRET:-Abbbs4u$$Dd!TE@eO^em8JA5UXCwrn}
+
+
 database:
   driverClass: org.postgresql.Driver
   user: ${DB_USER:-traderdw}

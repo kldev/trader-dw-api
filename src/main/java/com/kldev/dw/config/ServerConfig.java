@@ -17,4 +17,12 @@ public class ServerConfig extends Configuration {
         return database;
     }
 
+
+    @JsonProperty
+    @NotNull
+    private String jwtSecret;
+
+    public String getJwtSecret() {
+        return jwtSecret;
+    }
 }

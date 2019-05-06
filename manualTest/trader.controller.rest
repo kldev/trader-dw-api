@@ -3,6 +3,7 @@
 
 ### CREATE TARADER
 POST {{serverUrl}}/api/trader
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJpZCI6IjcxYmU5MDdiLWEwZjQtNDcxNi04Mjc3LWNlNjcxZTYxMDI1YiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.olGTWi4WX-3oaapfUUZf8QVf3ilQ4vnJ1Ldw1nKR3wOxUAZaOiEFVFmhYtFdNz7TcsuCtm0IqzyBOl7uj_XDtw
 Content-Type: application/json
 
 {

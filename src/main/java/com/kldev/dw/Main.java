@@ -5,6 +5,7 @@ package com.kldev.dw;
 
 import com.kldev.dw.config.ServerConfig;
 import com.kldev.dw.controller.BookController;
+import com.kldev.dw.controller.LoginController;
 import com.kldev.dw.controller.TraderController;
 import com.kldev.dw.service.AppService;
 import com.kldev.dw.storage.Book;
@@ -65,10 +66,15 @@ public class Main extends Application<ServerConfig> {
         final AppService appService = new AppService(proxyStorage.getTraderProxy(), proxyStorage.getBookProxy());
 
         final BookController bookController = new BookController(appService);
-        final TraderController traderController = new TraderController(appService);
+        final TraderController traderController = new TraderController(appService, config.getJwtSecret());
+        final LoginController loginController = new LoginController(config.getJwtSecret());
+
 
         env.jersey().register(bookController);
         env.jersey().register(traderController);
+        env.jersey().register(loginController);
+
+
 
     }
 }
